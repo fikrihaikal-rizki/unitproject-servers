@@ -3,8 +3,6 @@ FROM alpine:3.19
 
 # Set environment variables
 ENV GO_VERSION=1.21.6
-ENV NODE_VERSION=20.15.1
-ENV NPM_VERSION=10.2.5
 
 # Install common dependencies and tools
 RUN apk add --no-cache \
@@ -20,7 +18,7 @@ RUN apk add --no-cache \
     tar
 
 # Download and install specific Node.js version
-RUN apk add --no-cache nodejs=$NODE_VERSION npm=$NPM_VERSION
+RUN apk add --no-cache nodejs npm
 
 # Install Go manually
 RUN wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
